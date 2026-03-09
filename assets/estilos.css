@@ -79,13 +79,16 @@ body{
 /* ===== IMAGEN ===== */
 .content-img{
     position: relative;
+    width: 600px;
+    margin: auto;
     padding: 15px;
-    overflow: hidden;
+    cursor: pointer;
 }
 
-img{
+.content-img img{
     width: 100%;
     max-width: 666px;
+    display: block;
     border-radius: 15px;
     border: 2px solid #00f7ff;
     box-shadow: 0 0 20px #00f7ff;
@@ -104,9 +107,24 @@ img:hover{
     background: rgba(0,0,0,0.4);
     border-radius: 15px;
     transition: opacity 0.4s ease;
-    z-index: 5;
+    z-index: 20000;
 }
 
+.marca{
+    position: absolute;
+    font-size: 30px;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+
+.correcto{
+    color: #00ff00;
+}
+
+.incorrecto{
+    color: red;
+}
 
 .oculto{
     opacity: 0;
@@ -136,67 +154,4 @@ img:hover{
 }
 
 /* ===== CONTENT ACTION ===== */
-.content-action{
-    
-    position: absolute;
-    inset: 0;
-    z-index: 2;
-    /* display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent; */
-    display: grid;
-    grid-template-columns: repeat(10,1fr);
-    grid-template-rows: repeat(10,1fr);
-}
 
-.piso{
-    aspect-ratio: 1/1;
-    border: solid 1px black;
-}
-
-.correcto{
-    color: #00ff00;
-    font-size: 33px;
-    padding: 20px;
-}
-
-.incorrecto{
-    color: #ff0000;
-    font-size: 33px;
-    padding: 20px;
-}
-
-
-/* ===== RESPONSIVE ===== */
-
-/* Tablet */
-@media (max-width: 768px){
-    .content-panel{
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .content-count{
-        width: 100%;
-    }
-
-    .btn-instrucciones{
-        width: 100%;
-    }
-}
-
-/* Celular */
-@media (max-width: 480px){
-    .content{
-        padding: 15px;
-    }
-
-    .content-count{
-        font-size: 22px;
-    }
-
-    #btn_start{
-        width: 100%;
-    }
-}
