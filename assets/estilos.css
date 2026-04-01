@@ -1,3 +1,4 @@
+@import url(table.css);
 /* ===== RESET ===== */
 *{
     margin: 0;
@@ -25,6 +26,13 @@ body{
     background: rgba(20,20,40,0.85);
     border: 2px solid #00f7ff;
     box-shadow: 0 0 25px #00f7ff;
+}
+
+.container a{
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
 }
 
 /* ===== PANEL SUPERIOR ===== */
@@ -77,11 +85,12 @@ body{
 }
 
 /* ===== IMAGEN ===== */
-.content-img{
+.content-img,.game{
     position: relative;
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     margin: auto;
-    padding: 15px;
+    padding: 10px;
     cursor: pointer;
 }
 
@@ -110,12 +119,19 @@ img:hover{
     z-index: 20000;
 }
 
+
+
+
+
 .marca{
-    position: absolute;
-    font-size: 30px;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
+    position:absolute;
+    width:30px;
+    height:30px;
+    border:3px solid red;
+    border-radius:50%;
+    pointer-events:none;   
 }
+
 
 
 .correcto{
@@ -155,3 +171,54 @@ img:hover{
 
 /* ===== CONTENT ACTION ===== */
 
+/* 📱 MOBILE */
+@media (max-width: 600px){
+
+    .content{
+        padding: 15px;
+        margin: 20px auto;
+    }
+
+    .content-panel{
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .content-count{
+        width: 100%;
+        font-size: 22px;
+    }
+
+    .btn-instrucciones{
+        width: 100%;
+        font-size: 16px;
+    }
+
+    .content-img{
+        padding: 10px;
+    }
+
+    .marca{
+        width: 20px;
+        height: 20px;
+    }
+
+    #btn_start{
+        width: 100%;
+        font-size: 16px;
+    }
+}
+
+/* 📲 TABLET */
+@media (max-width: 900px){
+
+    .content{
+        width: 95%;
+    }
+
+    .content-img,
+    .game{
+        max-width: 500px;
+    }
+}
