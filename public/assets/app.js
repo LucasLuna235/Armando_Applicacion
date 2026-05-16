@@ -8,6 +8,10 @@ const zona = document.getElementById('zona');
 const imagen = document.getElementById('ImagenJuego');
 const contador = document.getElementById('contador');
 
+// Email Admin
+const ADMIN_EMAIL = "lukitaass2013@gmail.com";
+
+
 let juegoActivo = false;
 let tiempo;
 let intervalo;
@@ -81,20 +85,9 @@ if(btn_start){
 if(imagen){
 imagen.addEventListener('click', cargaApp);
 }
-// function mostrarInstrucciones(texto){
-
-//     mensajeJuego.innerHTML = texto;
-
-//     mensajeJuego.classList.add('activo');
-
-//     setTimeout(()=>{
-
-//         mensajeJuego.classList.remove('activo');
-
-//     },15000);
-// }
 
 
+ 
 function cargaApp(e) {
 
     if (!juegoActivo) return;
@@ -257,6 +250,7 @@ function resetearPrograma() {
         ⭐ Puntaje: ${puntaje}
             <br>
         ✅ Diferencias: ${encontradas}
+         <a href="../pages/puntos.html">ver mis puntajes</a>
         `
         );
 

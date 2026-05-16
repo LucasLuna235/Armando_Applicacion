@@ -2,6 +2,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
 import {
   getAuth,
+  onAuthStateChanged,
   signInWithPopup,
   GoogleAuthProvider,
   signOut
@@ -59,6 +60,42 @@ function signInWithGoogle() {
       console.error("Error login:", error.message);
     });
 }
+
+
+// export async function esAdmin(usuario){
+//     const email = usuario.email
+//         .replace(/\./g, ",");
+
+//     const adminRef = ref(db, "admins/" + email);
+
+//     const snapshot = await get(adminRef);
+
+//     return snapshot.exists();
+// }
+
+
+// auth.onAuthStateChanged(async(user)=>{
+
+//     if(user){
+
+//         const admin = await esAdmin(user);
+
+//         const tablaPuntos = document.querySelector(".content-puntos");
+
+//         if(admin){
+
+//             tablaPuntos.style.display = "block";
+
+//             console.log("Administrador");
+
+//         }else{
+
+//             tablaPuntos.style.display = "none";
+
+//             console.log("Usuario normal");
+//         }
+//     }
+// });
 
 
 // LOGOUT
@@ -145,3 +182,6 @@ function reseteadb(){
   }
 
 }
+
+
+
