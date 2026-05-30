@@ -29,6 +29,17 @@ header{
 }
 
 /* TABLA */
+
+.titulos-tabla{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
 table{
     width: 100%;
     border-collapse: collapse;
@@ -82,6 +93,7 @@ tbody tr:nth-child(2){
 tbody tr:nth-child(3){
     background: rgba(205, 127, 50, 0.2);
 }
+
 
 /* RESPONSIVE */
 @media (max-width: 600px){
