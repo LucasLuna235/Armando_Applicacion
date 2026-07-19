@@ -46,6 +46,7 @@
     let rolUsuario ="";
 
     let diferencias = [
+    //Condiciones subestandar 
     {x:10.7, y:75.2, encontrada:false, descripcion:"Tacho sin tapa", puntos:10},
     {x:10.7, y:91.1, encontrada:false, descripcion:"RSU Desparramados", puntos:10},
     {x:10.7, y:82.2, encontrada:false, descripcion:"Tacho sin identificar con RSU mezclados", puntos:10},
@@ -54,15 +55,15 @@
     {x:35.6, y:38.7, encontrada:false, descripcion:"Escalera quebrada y atada", puntos:10},
     {x:32.5, y:42.1, encontrada:false, descripcion:"Escalera emparchada", puntos:10},
     {x:35.6, y:59.6, encontrada:false, descripcion:"Falta pata anti deslizante", puntos:10},
-    {x:32.2, y:20.8, encontrada:false, descripcion:"Escalera inadecuada apoyada en cajas", puntos:10},
+    {x:32.2, y:20.8, encontrada:false, descripcion:"no uso de guantes agarrado a madera", puntos:10},
     {x:42.9, y:44.2, encontrada:false, descripcion:"Falta mampara para soldadura", puntos:10},
     {x:57.7, y:42.7, encontrada:false, descripcion:"Falta cabina anti vuelco", puntos:10},
     {x:35.8, y:89.3, encontrada:false, descripcion:"Bidón sin tapa emanando gases", puntos:10},
     {x:42.8, y:88.3, encontrada:false, descripcion:"Tanque de combustible sin identificar", puntos:10},
-    {x:56, y:90.6, encontrada:false, descripcion:"Derrame de aceite", puntos:10},
+    {x:56,   y:90.6, encontrada:false, descripcion:"Derrame de aceite", puntos:10},
     {x:68.2, y:66.9, encontrada:false, descripcion:"Variación por no centrar la pieza", puntos:10},
     {x:80.7, y:65.1, encontrada:false, descripcion:"Proyecciones por alta velocidad", puntos:10},
-    {x:35.1, y:46.4, encontrada:false, descripcion:"Escalón", puntos:10},
+    {x:35.1, y:46.4, encontrada:false, descripcion:"Escalón roto", puntos:10},
     {x:85.3, y:53.6, encontrada:false, descripcion:"Sótano abierto y sin iluminación", puntos:10},
     {x:93, y:52.6, encontrada:false, descripcion:"Escalera corta, debe salir más de un metro", puntos:10},
     {x:61.4, y:48.6, encontrada:false, descripcion:"Falta extintor", puntos:10},
@@ -80,9 +81,38 @@
     {x:51.7, y:9, encontrada:false, descripcion:"Faltan carteles USO OBLIGADO EPP", puntos:10},
     {x:46.3, y:9, encontrada:false, descripcion:"Cadena del aparejo atada con hilo", puntos:10},
     {x:46.7, y:18.7, encontrada:false, descripcion:"Gancho sin seguro", puntos:10},
-    {x:50.9, y:28, encontrada:false, descripcion:"Carga larga tomada de un solo punto", puntos:10}
-    ];
-
+    {x:50.9, y:28, encontrada:false, descripcion:"Carga larga tomada de un solo punto", puntos:10},
+    // Actos subestandar
+    {x:75.5, y:58.9, encontrada:false, descripcion:"Tornero sin protección ocular", puntos:10},
+    {x:77.5, y:58.9, encontrada:false, descripcion:"Tornero sin sordina", puntos:10},
+    {x:63.2, y:29.7, encontrada:false, descripcion:"Soldando sin máscara", puntos:10},
+    {x:71.5, y:36.1, encontrada:false, descripcion:"Soldando arrodillado sin rodilleras", puntos:10},
+    {x:57.2, y:10.7, encontrada:false, descripcion:"Electricista sin protección ocular", puntos:10},
+    {x:42.6, y:35.9, encontrada:false, descripcion:"Soldando sin mascara de soldador", puntos:10},
+    {x:46.1, y:46.7, encontrada:false, descripcion:"Soldando arrodillado sin rodilleras", puntos:10},    
+    {x:47.1, y:50.7, encontrada:false, descripcion:"Moviendo caja con polvo sin lentes", puntos:10},        
+    {x:53.1, y:56.7, encontrada:false, descripcion:"levantando con fuerza de espalda", puntos:10},    
+    {x:30.8, y:63.3, encontrada:false, descripcion:"fumando cerca de combustibles", puntos:10},  
+    {x:76.2, y:18.7, encontrada:false, descripcion:"no uso de lentes de seguridad", puntos:10},
+    {x:32.5, y:37.1, encontrada:false, descripcion:"Escalera emparchada", puntos:10},
+    {x:29.5, y:24.1, encontrada:false, descripcion:"Escalera emparchada", puntos:10},
+    {x:30.8, y:60.3, encontrada:false, descripcion:"no uso de lentes de seguridad", puntos:10},
+    {x:60.7, y:40.7, encontrada:false, descripcion:"En movil sin cinturon de seguridad", puntos:10},
+    {x:56.2, y:25.7, encontrada:false, descripcion:"Tablero eléctrico con EE abierto sin DD", puntos:10},
+    {x:42.9, y:44.2, encontrada:false, descripcion:"Soldando sin guantes", puntos:10},    
+    {x:82.1, y:18.7, encontrada:false, descripcion:"colocaron muchas piezas y no se ve", puntos:10},    
+    {x:55.1, y:46.6, encontrada:false, descripcion:"autoelevador muy rapido", puntos:10},
+    {x:79, y:88.6, encontrada:false, descripcion:"personal sin botines de seguridad", puntos:10},
+    {x:27, y:90.3, encontrada:false, descripcion:"personal sin botines de seguridad", puntos:10},
+    {x:51.1, y:70.7, encontrada:false, descripcion:"personal sin botines de seguridad", puntos:10},
+    {x:82.1, y:35.7, encontrada:false, descripcion:"personal sin botines de seguridad", puntos:10},
+    {x:36.2, y:32.8, encontrada:false, descripcion:"calzado no antideslizante", puntos:10},    
+    {x:26, y:20.8, encontrada:false, descripcion:"calzado no antideslizante", puntos:10},
+    {x:30.8, y:57.3, encontrada:false, descripcion:"calzado no antideslizante", puntos:10},
+    {x:46.1, y:50.7, encontrada:false, descripcion:"levantando con fuerza de espalda", puntos:10},        
+    {x:63.2, y:27.7, encontrada:false, descripcion:"levantando con fuerza de espalda", puntos:10},        
+    
+];
     if(velo1){
 
         velo1.addEventListener('click', () => {
@@ -103,7 +133,7 @@
 
     }
 
-
+    
     if(btn_start){
     btn_start.addEventListener('click', reloj);
     }
@@ -201,7 +231,7 @@
 
     });
 
-
+    // esto te da las coordenaas exactas
     function cargaApp(e) {
 
         if (!juegoActivo) return;
@@ -272,6 +302,7 @@
         }
     }
 
+    // esto te marca los puntos marcados
     function marcar(x, y) {
 
         let marca = document.createElement("div");
@@ -284,7 +315,7 @@
         zona.appendChild(marca);
     }
 
-
+    // Esto muestra el reloj
     function reloj() {
 
         if (juegoActivo) return;

@@ -254,9 +254,13 @@ async function reseteadb() {
 
 
 // VERIFICAR ADMIN
-export  function esAdmin(user) {
+export function esAdmin(user) {
+
     if(!user) return false;
 
-    return user.email === "lukitaass2013@gmail.com" || "armandodelaplataguanco@gmail.com";
-  
+    return (
+        user.email === "lukitaass2013@gmail.com" ||
+        user.email === "armandodelaplataguanco@gmail.com"
+    );
+
 }
