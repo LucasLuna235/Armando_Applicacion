@@ -129,8 +129,9 @@ function cerrarSesion() {
 }
 
 
+
 // GUARDAR PUNTAJES
-export async function insertarPuntajes(nombre, encontradas, tiempoUsado, tiempoRol, rolUsuario){
+export async function insertarPuntajes(nombre, encontradas, tiempoUsado, tiempoRol, rolUsuario, resultadoFinal){
 
   try {
 
@@ -164,7 +165,9 @@ export async function insertarPuntajes(nombre, encontradas, tiempoUsado, tiempoR
 
       rolUsuario: rolUsuario,
 
-      fecha: new Date().toLocaleString()
+      fecha: new Date().toLocaleString(),
+
+      resultado: resultadoFinal
 
     });
 

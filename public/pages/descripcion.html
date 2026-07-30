@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,37 +8,35 @@
 </head>
 <body>
  <header>
-    <h1>Evaluación CMASS</h1>
-    <h4>Condiciones Subestandar</h4>
-    <a href="../pages/puntos.html" class="link_act_sub">Ver puntajes</a>
-    <a class="btn_close">Cerrar Sesión</a>
+    <h1>Sobre la evaluación CMASS</h1> 
+    <!-- <a class="btn_close">Cerrar Sesión</a> -->
 </header>
    <div class="container content">
         
-        <div class="content-panel">
-            <a href="../pages/instrucciones.html" class="btn-instrucciones">Instrucciones</a>
-            <div class="content-count">
-                <div id="contador"></div>
-            </div>
-        </div>
+        <!-- <div class="content-panel">
+            <a href="../pages/app.html" class="btn-instrucciones">Volver</a>
+        </div> -->
         <div class="container content-puntos"></div>
         <div class="content-img game" id="zona">
-            <img src="../assets/img_riesgo4.png" alt="imagen" id="ImagenJuego">
-            <div class="content-block">
-                <div class="true_point"></div>
+            <div class="Mensaje-Instrucciones">
+                <h2>Jugador: <p id="nombreJugador"></p></h2>
+                <h3>Puntos: </h3>
+                <p id="puntajeJugador"></p><br>
+                <h3>Lista encontradas: </h3>
+                <li id="listaEncontradas"></li><br>
+                <h3>Lista no encontradas: </h3>
+                <li id="listaNoEncontradas"></li>
             </div>
-            <div id="mensajeJuego" class="mensaje-juego"></div>
         </div>
-        
-        <div id="btn_start">START</div>
+        <a href="../pages/app.html" id="btn_comenzarEvaluación" class="btn_blanco">Volver</a>
         
    </div> 
     <footer class="container">
         <p class="derecho">&copy; 2026 App realizada por <a href="https://lucasluna235.github.io/LEL-Desarrollos-Web/">LEL desarrollos Web</a> - todos los derechos reservados </p>
     </footer>
 
-   <script type="module" src="../js/app.js"></script>
    
+   <script type="module" src="../js/descripcion.js"></script>
    <script type="module" src="../firebase/app_firebase.js"></script> 
    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </body>

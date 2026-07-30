@@ -56,7 +56,7 @@ auth.onAuthStateChanged(async(user)=>{
 
                     <tr class="card-puntos">
                         
-                        <td>${jugador.nombre}</td>
+                        <td><a href="../pages/descripcion.html?id=${id}">${jugador.nombre}</a></td>
 
                         <td>📅 ${jugador.rolUsuario}</td>
 
@@ -82,8 +82,9 @@ auth.onAuthStateChanged(async(user)=>{
                     <tr class="card-puntos">
                         
                         <td>${jugador.nombre}</td>
-
+                        <td>📅 ${jugador.rolUsuario}</td>
                         <td>⭐ ${jugador.puntos} puntos</td>
+                        <td>📅 ${jugador.tiempoRol}</td>
                         <td>${jugador.tiempo}</td>
                         <td>📅 ${jugador.fecha}</td>
                         
