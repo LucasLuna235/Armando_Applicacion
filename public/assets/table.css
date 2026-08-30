@@ -23,7 +23,7 @@ header{
 
 /* CONTENEDOR */
 .container{
-    width: 90%;
+    width: 100%;
     max-width: 900px;
     margin: 0 auto;
 }
@@ -41,13 +41,15 @@ header{
 }
 
 table{
-    width: 100%;
-    border-collapse: collapse;
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    width:100%;
+
+    min-width:900px;
+
+    border-collapse:collapse;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:15px;
 }
 
 /* ENCABEZADO */
@@ -93,22 +95,47 @@ tbody tr:nth-child(2){
 tbody tr:nth-child(3){
     background: rgba(205, 127, 50, 0.2);
 }
+/* Tabla Responsive */
 
+.tabla-responsive{
+
+    width:100%;
+
+    overflow-x:auto;
+
+    overflow-y: hidden;
+
+    -webkit-overflow-scrolling:touch;
+
+}
 
 /* RESPONSIVE */
-@media (max-width: 600px){
+/* 📱 CELULAR */
+@media screen and (max-width:600px){
 
-    header{
-        font-size: 1.5rem;
-    }
+    .content{
 
-    td{
-        padding: 8px;
-        font-size: 0.8rem;
+        width:95%;
+
+        padding:15px;
+
     }
 
     table{
-        font-size: 0.85rem;
+
+        min-width:850px;
+
+    }
+
+    th,
+    td{
+
+        padding:10px;
+
+        font-size:14px;
+
+        white-space:nowrap;
+
     }
 
 }

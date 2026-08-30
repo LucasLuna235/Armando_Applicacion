@@ -21,12 +21,24 @@ a{
     color: white;
 }
 
+/* ======== HEADER ========= */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 20px 30px;
+    gap: 15px;
+}
+
+
 /* ===== CONTENEDOR PRINCIPAL ===== */
 .content{
-    width: 90%;
+  width: 90%;
     max-width: 900px;
     margin: 40px auto;
-    text-align: center;
+    text-align: left; /* 👈 CAMBIO */
     padding: 25px;
     border-radius: 20px;
     background: rgba(20,20,40,0.85);
@@ -239,10 +251,114 @@ footer{
     padding: 20px;
 }
 
-/* ===== CONTENT ACTION ===== */
+.instrucciones {
+    text-align: left;
+    width: 100%;
+}
+
+.item {
+    margin-bottom: 25px;
+}
+
+.item h3 {
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-align: left;
+}
+
+.item ul {
+    text-align: left;
+    padding-left: 50px;
+}
+
+.item li {
+    margin-bottom: 8px;
+}
+
 
 /* 📱 MOBILE */
-@media (max-width: 600px){
+
+/* 📱 CELULARES */
+
+@media screen and (min-width:365px){
+
+    header{
+
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    header h1{
+
+        font-size: 28px;
+        text-align: center;
+
+    }
+
+    header h4{
+
+        font-size:18px;
+        text-align:center;
+
+    }
+
+    .link_act_sub,
+    .btn_close{
+
+        width:90%;
+        max-width:280px;
+
+        display:block;
+
+        text-align:center;
+
+        margin:0;
+
+    }
+
+    .content-panel{
+
+        flex-direction:column;
+
+        gap:15px;
+
+    }
+
+    .btn-instrucciones{
+
+        width:90%;
+        max-width:280px;
+
+    }
+
+    .content-count{
+
+        width:90%;
+
+    }
+
+}
+
+
+
+@media (max-width: 600px){    .btn_login,
+    .btn_close,
+    .link_act_sub,
+    .btn-instrucciones{
+        width: 90%;
+        max-width: 280px;
+    }
+
+    
+
+    header{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
 
     .content{
         padding: 15px;
@@ -292,5 +408,10 @@ footer{
         max-width: 500px;
     }
 }
+
+
+/* CELULAR */
+
+
 
 /* CORDENADAS RESPONSIVE */
