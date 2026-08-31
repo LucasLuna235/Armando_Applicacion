@@ -38,7 +38,7 @@ header {
   width: 90%;
     max-width: 900px;
     margin: 40px auto;
-    text-align: left; /* 👈 CAMBIO */
+    text-align: center; /* 👈 CAMBIO */
     padding: 25px;
     border-radius: 20px;
     background: rgba(20,20,40,0.85);
@@ -251,30 +251,25 @@ footer{
     padding: 20px;
 }
 
-.instrucciones {
+/* ====== ESTILOS DE INSTRUCCIONES ====== */
+
+.content-observacion{
+    margin: 0;
+    width: auto;
+    padding: 10px;
+    padding-bottom: 20px;
+}
+
+.subtitle{
     text-align: left;
-    width: 100%;
+    left: 20px;
+    padding: 10px;
 }
 
-.item {
-    margin-bottom: 25px;
-}
-
-.item h3 {
-    margin: 0 0 10px 0;
-    padding: 0;
+.content-tipo-observacion p{
     text-align: left;
+    margin-left: 74px;
 }
-
-.item ul {
-    text-align: left;
-    padding-left: 50px;
-}
-
-.item li {
-    margin-bottom: 8px;
-}
-
 
 /* 📱 MOBILE */
 
