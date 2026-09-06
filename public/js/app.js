@@ -371,9 +371,17 @@
         let nombre = prompt("Ingresá tu nombre:");
 
         if (!nombre || nombre.trim() === "") {
-            nombre = "Jugador";
-        }
+            nombre = null;
 
+            mostrarMensaje(`
+            ⚠️ No se guardaron los puntos
+            <br>
+            Debés ingresar un nombre        
+            `);
+
+        }else{
+            nombre = nombre.trim();
+            
             // CALCULAR TIEMPO USADO
         // TIEMPO GASTADO
             let tiempoGastado = tiempoInicial - tiempo;
@@ -392,11 +400,10 @@
                 encontrada: d.encontrada
             }));
 
+               // 🔥 GUARDAR EN FIREBASE
+            insertarPuntajes(nombre, puntaje, tiempoUsado, tiempoRol, rolUsuario, resultadoFinal);
 
-        // 🔥 GUARDAR EN FIREBASE
-        insertarPuntajes(nombre, puntaje, tiempoUsado, tiempoRol, rolUsuario, resultadoFinal);
-
-        mostrarMensaje(
+            mostrarMensaje(
             `
             🎮 ${nombre}
                 <br>
@@ -405,7 +412,7 @@
             ✅ Diferencias: ${encontradas}
             
             `
-            );
+        );
 
         document.querySelectorAll('.marca').forEach(m => m.remove());
 
@@ -416,6 +423,9 @@
         diferencias.forEach(d => d.encontrada = false);
 
         contador.innerHTML = "0";
+
+        }
+
     }
 
     export function mostrarMensaje(texto){

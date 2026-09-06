@@ -67,6 +67,7 @@ auth.onAuthStateChanged(async(user)=>{
                         <td>📅 ${jugador.tiempoRol}</td>
 
                         <td>📅 ${jugador.fecha}</td>
+                        
 
                     </tr>
                     
