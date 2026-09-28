@@ -87,15 +87,15 @@
     { nombre: "Tornero sin sordina", x:77.5, y:58.9, encontrada:false, puntos:10},
     { nombre: "Soldando sin máscara", x:63.2, y:29.7, encontrada:false, puntos:10},
     { nombre: "Soldando arrodillado sin rodilleras", x:71.5, y:36.1, encontrada:false, puntos:10},
-    { nombre: "Electricista sin protección ocular", x:57.2, y:10.7, encontrada:false, puntos:10},
+    { nombre: "tareas en tablero electrico sin guantes dielectricos", x:57.2, y:10.7, encontrada:false, puntos:10},
     { nombre: "Soldando sin mascara de soldador", x:42.6, y:35.9, encontrada:false, puntos:10},
     { nombre: "Soldando arrodillado sin rodilleras", x:46.1, y:46.7, encontrada:false, puntos:10},    
     { nombre: "Moviendo caja con polvo sin lentes", x:47.1, y:50.7, encontrada:false, puntos:10},        
     { nombre: "levantando con fuerza de espalda", x:53.1, y:56.7, encontrada:false, puntos:10},    
     { nombre: "fumando cerca de combustibles", x:30.8, y:63.3, encontrada:false, puntos:10},  
     { nombre: "no uso de lentes de seguridad", x:76.2, y:18.7, encontrada:false, puntos:10},
-    { nombre: "Escalera emparchada", x:32.5, y:37.1, encontrada:false, puntos:10},
-    { nombre: "Escalera emparchada", x:29.5, y:24.1, encontrada:false, puntos:10},
+    { nombre: "Parado en un pie en una escalera", x:32.5, y:37.1, encontrada:false, puntos:10},
+    { nombre: "Cuerpo desplazado fuera de la vertical", x:29.5, y:24.1, encontrada:false, puntos:10},
     { nombre: "no uso de lentes de seguridad", x:30.8, y:60.3, encontrada:false, puntos:10},
     { nombre: "En movil sin cinturon de seguridad", x:60.7, y:40.7, encontrada:false, puntos:10},
     { nombre: "Tablero eléctrico con EE abierto sin DD", x:56.2, y:25.7, encontrada:false, puntos:10},
@@ -107,11 +107,26 @@
     { nombre: "personal sin botines de seguridad", x:51.1, y:70.7, encontrada:false, puntos:10},
     { nombre: "personal sin botines de seguridad", x:82.1, y:35.7, encontrada:false, puntos:10},
     { nombre: "calzado no antideslizante", x:36.2, y:32.8, encontrada:false, puntos:10},    
-    { nombre: "calzado no antideslizante", x:26, y:20.8, encontrada:false, puntos:10},
-    { nombre: "calzado no antideslizante", x:30.8, y:57.3, encontrada:false, puntos:10},
+    { nombre: "no uso de lentes de seguridad", x:26, y:20.8, encontrada:false, puntos:10},
+    { nombre: "no uso de casco de seguridad", x:30.8, y:57.3, encontrada:false, puntos:10},
     { nombre: "levantando con fuerza de espalda", x:46.1, y:50.7, encontrada:false,  puntos:10},        
-    { nombre: "levantando con fuerza de espalda", x:63.2, y:27.7, encontrada:false, puntos:10},        
+    { nombre: "No uso casco de seguridad", x:63.2, y:27.7, encontrada:false, puntos:10},        
     
+    { nombre: "tira fosforo encendido", x:21.8, y:67.3, encontrada:false, puntos:10},        
+    { nombre: "casco inadecuado", x:57.2, y:5.7, encontrada:false, puntos:10},        
+    { nombre: "carga cajas de madera con astillas sin guantes", x:57.2, y:5.7, encontrada:false, puntos:10},        
+    { nombre: "no uso de lentes de seguridad", x:31.9, y:60.3, encontrada:false, puntos:10},
+    {nombre: "falta de casco y lentes de seguridad", x:29.5, y:57.3, encontrada:false, puntos:10},
+    
+    { nombre: "mal sentado, no regulo asiento", x:60.7, y:35.7, encontrada:false, puntos:10},    
+    { nombre: "carga cajas de madera con astillas sin guantes", x:48.1, y:70.7, encontrada:false, puntos:10},
+    {nombre: "electricista sin protección ocular", x:57.2, y:7.7, encontrada:false,  puntos:10},
+    { nombre: "", x:40.6, y:33.3, encontrada:false, puntos:10},
+    //style="left: 30.8%; top: 63.3%;" 
+    // left: 21.8%; top: 67.3%;
+    // x: 57.2%; y: 7.7%,    
+    // falta de casco y lentes de seguridad
+    // x: 40.6% y: 33.3
 ];
     if(velo1){
 
