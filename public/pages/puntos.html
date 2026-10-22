@@ -3,39 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Posiciones y Clasificación | CMASS</title>
     <link rel="stylesheet" href="../assets/estilos.css">
-    <title>Evaluacon CMASS - Puntajes</title>
 </head>
 <body>
+    <!-- HEADER -->
     <header>
-        <h3>Puntajes</h3>
-    </header>
-    
-    <div class="container content">
-        <div class="tabla-responisve">
-            <table>
-            <thead>
-            <tr>
-                <td>Nombre</td>
-                <td>Rol</td>
-                <td>Puntos</td>
-                <td>Tiempo-Asig.</td>
-                <td>Tiempo-Fin.</td>
-                <td>Fecha</td>
-            </tr>
-            </thead>
-            <tbody id="tablaPuntos"></tbody>
-        </table>
+        <div class="container header-inner">
+            <div class="brand-wrapper">
+                <div class="brand-icon">🏆</div>
+                <div class="brand-text">
+                    <h1>Rankings de Evaluación <span class="badge-edition">En Vivo</span></h1>
+                    <p>Registro histórico y clasificación por rendimiento</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../pages/app.html" class="btn btn-safety">▶ Volver al Simulador</a>
+                <a href="../pages/instrucciones.html" class="btn btn-outline">📋 Instrucciones</a>
+                <button class="btn btn-danger-outline btn_close" type="button">Cerrar Sesión</button>
+            </div>
         </div>
-        
-        
-    </div>
-    <div class="container"> 
-        <a href="../pages/app.html">Volver</a>
-        <button id="btnReset">Resetear Ranking</button>
-    </div>
-    
-    <script type="module" src="../js/tabla.js"></script>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="container">
+        <div class="card" style="margin-top: 30px;">
+            <!-- PODIO TOP 3 -->
+            <div class="podium-container" id="podiumTop3" style="display: none;">
+                <!-- Segundo puesto -->
+                <div class="podium-card second" id="podiumSecond">
+                    <div class="podium-medal">🥈</div>
+                    <div class="podium-name" id="podiumSecondName">-</div>
+                    <div class="podium-role" id="podiumSecondRole">-</div>
+                    <div class="podium-score" id="podiumSecondScore">0 pts</div>
+                </div>
+
+                <!-- Primer puesto -->
+                <div class="podium-card first" id="podiumFirst">
+                    <div class="podium-medal">🥇</div>
+                    <div class="podium-name" id="podiumFirstName">-</div>
+                    <div class="podium-role" id="podiumFirstRole">-</div>
+                    <div class="podium-score" id="podiumFirstScore">0 pts</div>
+                </div>
+
+                <!-- Tercer puesto -->
+                <div class="podium-card third" id="podiumThird">
+                    <div class="podium-medal">🥉</div>
+                    <div class="podium-name" id="podiumThirdName">-</div>
+                    <div class="podium-role" id="podiumThirdRole">-</div>
+                    <div class="podium-score" id="podiumThirdScore">0 pts</div>
+                </div>
+            </div>
+
+            <!-- TOOLBAR DE BÚSQUEDA Y ACCIONES -->
+            <div class="rankings-toolbar">
+                <div class="search-input-wrapper">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="inputBuscar" class="search-input" placeholder="Buscar por evaluador o rol...">
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button id="btnReset" class="btn btn-danger-outline" style="display: none;">
+                        🗑️ Limpiar Historial (Admin)
+                    </button>
+                </div>
+            </div>
+
+            <!-- TABLA DE POSICIONES -->
+            <div class="tabla-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Evaluador</th>
+                            <th>Rol Operativo</th>
+                            <th>Puntos</th>
+                            <th>Tiempo Usado</th>
+                            <th>Tiempo Asignado</th>
+                            <th>Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaPuntos">
+                        <tr>
+                            <td colspan="7" class="empty-state">
+                                <div class="empty-state-icon">⏳</div>
+                                <p>Cargando clasificaciones desde Firebase...</p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin-top: 24px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;">
+                <a href="../pages/app.html" class="btn btn-outline">⬅ Volver a la Evaluación</a>
+                <span style="font-size: 0.8rem; color: var(--text-muted);">
+                    Sincronizado en tiempo real con Firebase Realtime Database
+                </span>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Plataforma de Evaluación CMASS &bull; Desarrollado por <a href="https://lucasluna235.github.io/LEL-Desarrollos-Web/" target="_blank" rel="noopener">LEL Desarrollos Web</a> &bull; Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
     <script type="module" src="../firebase/app_firebase.js"></script>
+    <script type="module" src="../js/tabla.js"></script>
 </body>
 </html>

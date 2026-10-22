@@ -1,141 +1,113 @@
-/* RESET */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* ==========================================================================
+   ESTILOS DE TABLAS Y RANKINGS
+   ========================================================================== */
 
-/* BODY */
-body{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
-    color: #fff;
-}
-
-/* HEADER */
-header{
-    text-align: center;
-    font-size: 2rem;
-    padding: 20px;
-    font-weight: bold;
-    letter-spacing: 2px;
-}
-
-/* CONTENEDOR */
-.container{
+.tabla-responsive {
     width: 100%;
-    max-width: 900px;
-    margin: 0 auto;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--bg-card-border);
+    background: rgba(17, 24, 39, 0.4);
 }
 
-/* TABLA */
-
-.titulos-tabla{
+table {
     width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    margin-bottom: 15px;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.92rem;
 }
 
-table{
-    width:100%;
-
-    min-width:900px;
-
-    border-collapse:collapse;
-
-    background:rgba(255,255,255,.05);
-
-    border-radius:15px;
+thead {
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid var(--bg-card-border);
 }
 
-/* ENCABEZADO */
-thead{
-    background: rgba(0,0,0,0.4);
-}
-
-thead td{
-    padding: 15px;
-    font-weight: bold;
+thead th, thead td {
+    padding: 14px 18px;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
 }
 
-/* FILAS */
-tbody tr{
-    transition: 0.3s;
+tbody tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    transition: var(--transition);
 }
 
-tbody tr:nth-child(even){
-    background: rgba(255,255,255,0.03);
+tbody tr:last-child {
+    border-bottom: none;
 }
 
-tbody tr:hover{
-    background: rgba(255,255,255,0.1);
-    transform: scale(1.01);
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.04);
 }
 
-/* CELDAS */
-td{
-    padding: 12px;
+tbody td {
+    padding: 14px 18px;
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+/* Enlaces dentro de celdas */
+tbody td a {
+    color: #60a5fa;
+    font-weight: 600;
+}
+
+tbody td a:hover {
+    text-decoration: underline;
+    color: #93c5fd;
+}
+
+/* Badges para tabla */
+.badge-role {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: var(--radius-full);
+    font-size: 0.78rem;
+    font-weight: 600;
+    background: rgba(59, 130, 246, 0.12);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.25);
+    text-transform: capitalize;
+}
+
+.badge-points {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    color: var(--accent-safety);
+}
+
+.badge-time {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+/* Fila de top 1, 2, 3 opcional en tabla */
+tbody tr.rank-1 {
+    background: rgba(234, 179, 8, 0.05);
+}
+
+tbody tr.rank-2 {
+    background: rgba(148, 163, 184, 0.04);
+}
+
+tbody tr.rank-3 {
+    background: rgba(180, 83, 9, 0.04);
+}
+
+/* Estado sin datos */
+.empty-state {
+    padding: 40px 20px;
     text-align: center;
+    color: var(--text-muted);
 }
 
-/* EFECTO PODIO (opcional si querés destacar top 3) */
-tbody tr:nth-child(1){
-    background: rgba(255, 215, 0, 0.2);
-}
-tbody tr:nth-child(2){
-    background: rgba(192, 192, 192, 0.2);
-}
-tbody tr:nth-child(3){
-    background: rgba(205, 127, 50, 0.2);
-}
-/* Tabla Responsive */
-
-.tabla-responsive{
-
-    width:100%;
-
-    overflow-x:auto;
-
-    overflow-y: hidden;
-
-    -webkit-overflow-scrolling:touch;
-
-}
-
-/* RESPONSIVE */
-/* 📱 CELULAR */
-@media screen and (max-width:600px){
-
-    .content{
-
-        width:95%;
-
-        padding:15px;
-
-    }
-
-    table{
-
-        min-width:850px;
-
-    }
-
-    th,
-    td{
-
-        padding:10px;
-
-        font-size:14px;
-
-        white-space:nowrap;
-
-    }
-
+.empty-state-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
 }

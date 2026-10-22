@@ -3,41 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe Detallado de Evaluación | CMASS</title>
     <link rel="stylesheet" href="../assets/estilos.css">
-    <title>Evaluación CMASS - Descripcion</title>
 </head>
 <body>
- <header>
-    <h1>Sobre la evaluación CMASS</h1> 
-    <!-- <a class="btn_close">Cerrar Sesión</a> -->
-</header>
-   <div class="container content">
-        
-        <!-- <div class="content-panel">
-            <a href="../pages/app.html" class="btn-instrucciones">Volver</a>
-        </div> -->
-        <div class="container content-puntos"></div>
-        <div class="content-img game" id="zona">
-            <div class="Mensaje-Instrucciones">
-                <h2>Jugador: <p id="nombreJugador"></p></h2>
-                <h3>Puntos: </h3>
-                <p id="puntajeJugador"></p><br>
-                <h3>Lista encontradas: </h3>
-                <li id="listaEncontradas"></li><br>
-                <h3>Lista no encontradas: </h3>
-                <li id="listaNoEncontradas"></li>
+    <!-- HEADER -->
+    <header>
+        <div class="container header-inner">
+            <div class="brand-wrapper">
+                <div class="brand-icon">📄</div>
+                <div class="brand-text">
+                    <h1>Informe Técnico Individual <span class="badge-edition">CMASS</span></h1>
+                    <p>Auditoría de hallazgos y detección de riesgos</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../pages/puntos.html" class="btn btn-outline">🏆 Volver a Rankings</a>
+                <a href="../pages/app.html" class="btn btn-safety">▶ Ir al Simulador</a>
             </div>
         </div>
-        <a href="../pages/app.html" id="btn_comenzarEvaluación" class="btn_blanco">Volver</a>
-        
-   </div> 
-    <footer class="container">
-        <p class="derecho">&copy; 2026 App realizada por <a href="https://lucasluna235.github.io/LEL-Desarrollos-Web/">LEL desarrollos Web</a> - todos los derechos reservados </p>
+    </header>
+
+    <!-- CONTENT -->
+    <main class="container">
+        <!-- FICHA IMPRIMIBLE / EXPORTABLE -->
+        <div class="report-sheet" id="reportContent" style="margin-top: 30px;">
+            <div class="report-header">
+                <div class="player-info-card">
+                    <div class="player-avatar-large" id="playerAvatar">👷</div>
+                    <div class="player-details">
+                        <h2 id="nombreJugador">Cargando evaluador...</h2>
+                        <p id="playerSubtitle">Evaluación práctica en Condiciones y Actos Subestándar</p>
+                    </div>
+                </div>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <button type="button" id="btnDescargarReporte" class="btn btn-outline" style="border-color: rgba(245, 158, 11, 0.4);">
+                        📥 Descargar Comprobante (PNG)
+                    </button>
+                </div>
+            </div>
+
+            <!-- METRIC BOXES -->
+            <div class="report-summary-boxes">
+                <div class="summary-box">
+                    <div class="label">Puntaje Total</div>
+                    <div class="value" id="puntajeValor" style="color: var(--accent-safety);">0 pts</div>
+                </div>
+
+                <div class="summary-box">
+                    <div class="label">Riesgos Detectados</div>
+                    <div class="value" id="hallazgosValor">0 / 35</div>
+                </div>
+
+                <div class="summary-box">
+                    <div class="label">Efectividad</div>
+                    <div class="value" id="efectividadValor">0%</div>
+                </div>
+
+                <div class="summary-box">
+                    <div class="label">Tiempo Empleado</div>
+                    <div class="value" id="tiempoValor" style="font-size: 1.25rem;">-</div>
+                </div>
+            </div>
+
+            <!-- LISTAS DE RIESGOS DETECTADOS VS OMITIDOS -->
+            <div class="results-columns">
+                <div class="results-column">
+                    <h3 class="found">
+                        <span>✅</span> Condiciones Detectadas (<span id="countEncontradas">0</span>)
+                    </h3>
+                    <ul class="risk-list found-list" id="listaEncontradas">
+                        <!-- Llenado dinámico -->
+                    </ul>
+                </div>
+
+                <div class="results-column">
+                    <h3 class="missed">
+                        <span>❌</span> Condiciones Omitidas (<span id="countNoEncontradas">0</span>)
+                    </h3>
+                    <ul class="risk-list missed-list" id="listaNoEncontradas">
+                        <!-- Llenado dinámico -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Elemento de compatibilidad con selectores previos -->
+            <p id="puntajeJugador" style="display: none;"></p>
+        </div>
+
+        <div style="margin-bottom: 40px; display: flex; gap: 12px; justify-content: flex-end;">
+            <a href="../pages/puntos.html" class="btn btn-outline">⬅ Volver a la Lista de Posiciones</a>
+            <a href="../pages/app.html" class="btn btn-primary">Nueva Evaluación ➔</a>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Plataforma de Evaluación CMASS &bull; Desarrollado por <a href="https://lucasluna235.github.io/LEL-Desarrollos-Web/" target="_blank" rel="noopener">LEL Desarrollos Web</a> &bull; Todos los derechos reservados.</p>
+        </div>
     </footer>
 
-   
-   <script type="module" src="../js/descripcion.js"></script>
-   <script type="module" src="../firebase/app_firebase.js"></script> 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script type="module" src="../firebase/app_firebase.js"></script> 
+    <script type="module" src="../js/descripcion.js"></script>
 </body>
 </html>

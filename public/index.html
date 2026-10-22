@@ -2,24 +2,89 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="author" content="LEL desarrollos web">
-    <meta name="copyright" content="© 2026 LEL desarrollos web">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Plataforma de evaluación interactiva en Condiciones y Medio Ambiente de Trabajo y Seguridad Ocupacional (CMASS).">
+    <meta name="author" content="LEL desarrollos web">
+    <title>Evaluación CMASS | Plataforma de Seguridad y Salud en el Trabajo</title>
     <link rel="stylesheet" href="./assets/estilos.css">
-    <title>Evaluación CMASS App</title>
 </head>
 <body>
-    <header class="container">
-        <h1>Evaluación CMASS Inicial</h1>
-        <h3>Debes iniciar sesion para comenzar</h3>
+    <!-- HEADER NAVBAR -->
+    <header>
+        <div class="container header-inner">
+            <div class="brand-wrapper">
+                <div class="brand-icon">🦺</div>
+                <div class="brand-text">
+                    <h1>Evaluación CMASS <span class="badge-edition">Oficial</span></h1>
+                    <p>Condiciones y Medio Ambiente de Trabajo</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="./pages/instrucciones.html" class="btn btn-outline">📋 Guía de Evaluación</a>
+                <a href="./pages/puntos.html" class="btn btn-outline">🏆 Rankings</a>
+            </div>
+        </div>
     </header>
-    <div class="container content">
-        <button id="btn_start" class="btn_login">Iniciar session Google</button>
-    </div> 
-    <footer class="container">
-        <p class="derecho">&copy; 2026 App realizada por <a href="https://lucasluna235.github.io/LEL-Desarrollos-Web/">LEL desarrollos Web</a> - todos los derechos reservados </p>
+
+    <!-- MAIN HERO CONTENT -->
+    <main class="container">
+        <div class="hero-auth-container">
+            <!-- Left: Presentation -->
+            <div class="hero-auth-info">
+                <div class="badge-tag">
+                    <span>⚡</span> Evaluación Técnica Interactiva
+                </div>
+                <h1>Mide tu capacidad de <span>Detección de Riesgos</span> laborales</h1>
+                <p>
+                    Plataforma de entrenamiento y certificación práctica en prevención de riesgos. Identifica condiciones y actos subestándares en escenarios industriales interactivos.
+                </p>
+
+                <ul class="features-list">
+                    <li>
+                        <div class="feat-icon">🔍</div>
+                        <div><strong>35 Riesgos Críticos:</strong> Encuentra actos y condiciones inseguras en la planta.</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon">⏱️</div>
+                        <div><strong>Desafío por Rol:</strong> Tiempo ajustado según tu nivel de responsabilidad operativa.</div>
+                    </li>
+                    <li>
+                        <div class="feat-icon">📊</div>
+                        <div><strong>Métricas Inmediatas:</strong> Registro de desempeño y tabla de posiciones en vivo.</div>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right: Auth Card -->
+            <div class="auth-card">
+                <div class="auth-card-icon">🔐</div>
+                <h2>Iniciar Evaluación</h2>
+                <p>Accede con tu cuenta institucional o personal de Google para guardar tus resultados y puntaje.</p>
+
+                <button id="btn_start" class="btn_login btn-google" type="button" aria-label="Iniciar sesión con Google">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.8-2.4 3.66v3.05h3.88c2.27-2.09 3.66-5.17 3.66-9.15z"/>
+                        <path fill="#34A853" d="M12 24c3.24 0 5.95-1.08 7.93-2.91l-3.88-3.05c-1.08.72-2.45 1.16-4.05 1.16-3.12 0-5.77-2.1-6.72-4.93H1.25v3.15C3.26 21.36 7.36 24 12 24z"/>
+                        <path fill="#FBBC05" d="M5.28 14.27c-.25-.72-.38-1.49-.38-2.27s.13-1.55.38-2.27V6.58H1.25C.45 8.16 0 9.94 0 12s.45 3.84 1.25 5.42l4.03-3.15z"/>
+                        <path fill="#EA4335" d="M12 4.75c1.77 0 3.35.61 4.6 1.8l3.42-3.42C17.95 1.19 15.24 0 12 0 7.36 0 3.26 2.64 1.25 6.58l4.03 3.15c.95-2.83 3.6-4.98 6.72-4.98z"/>
+                    </svg>
+                    <span>Ingresar con Google</span>
+                </button>
+
+                <p style="margin-top: 20px; margin-bottom: 0; font-size: 0.8rem; color: var(--text-muted);">
+                    🔒 Acceso seguro mediante Firebase Authentication
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Plataforma de Evaluación CMASS &bull; Desarrollado por <a href="https://lucasluna235.github.io/LEL-Desarrollos-Web/" target="_blank" rel="noopener">LEL Desarrollos Web</a> &bull; Todos los derechos reservados.</p>
+        </div>
     </footer>
-<!-- <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script> -->
-<script type="module" src="./firebase/app_firebase.js"></script>
+
+    <script type="module" src="./firebase/app_firebase.js"></script>
 </body>
 </html>

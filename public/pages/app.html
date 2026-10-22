@@ -1,45 +1,195 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Simulador interactivo de evaluación CMASS de condiciones y actos inseguros.">
+    <title>Evaluación CMASS | Simulador de Detección de Riesgos</title>
     <link rel="stylesheet" href="../assets/estilos.css">
-    <title>Evaluación CMASS INICIAL</title>
 </head>
 <body>
- <header>
-    <h1>Evaluación CMASS</h1>
-    <h4>Condiciones Subestandar</h4>
-    <a href="../pages/puntos.html" class="link_act_sub">Ver puntajes</a>
-    <a class="btn_close">Cerrar Sesión</a>
-</header>
-   <div class="container content">
-        
-        <div class="content-panel">
-            <a href="../pages/instrucciones.html" class="btn-instrucciones">Instrucciones</a>
-            <div class="content-count">
-                <div id="contador"></div>
+    <!-- HEADER NAVBAR -->
+    <header>
+        <div class="container header-inner">
+            <div class="brand-wrapper">
+                <div class="brand-icon">🦺</div>
+                <div class="brand-text">
+                    <h1>Evaluación CMASS <span class="badge-edition">Fase 1</span></h1>
+                    <p>Condiciones y Actos Subestándar</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <a href="../pages/instrucciones.html" class="btn btn-outline" target="_blank">📋 Instrucciones</a>
+                <a href="../pages/puntos.html" class="btn btn-outline link_act_sub">🏆 Ver Rankings</a>
+                <button class="btn btn-danger-outline btn_close" type="button" title="Cerrar sesión">Cerrar Sesión</button>
             </div>
         </div>
-        <div class="container content-puntos"></div>
-        <div class="content-img game" id="zona">
-            <img src="../assets/img_riesgo4.png" alt="imagen" id="ImagenJuego">
-            <div class="content-block">
-                <div class="true_point"></div>
+    </header>
+
+    <!-- MAIN GAME AREA -->
+    <main class="container">
+        <!-- HUD DE ESTADO DEL JUGADOR -->
+        <div class="hud-wrapper">
+            <div class="hud-user-info">
+                <div class="hud-user-avatar" id="hudUserAvatar">👷</div>
+                <div class="hud-user-details">
+                    <h3 id="hudUserName">Evaluador Activo</h3>
+                    <div>
+                        <span class="hud-role-badge" id="hudUserRole">Rol: No seleccionado</span>
+                        <button type="button" id="btnCambiarRol" class="btn-outline" style="padding: 2px 8px; font-size: 0.72rem; border-radius: 9999px; margin-left: 6px; cursor: pointer;">Cambiar</button>
+                    </div>
+                </div>
             </div>
-            <div id="mensajeJuego" class="mensaje-juego"></div>
+
+            <!-- STATS COUNTERS -->
+            <div class="hud-stats">
+                <div class="hud-stat-box">
+                    <div class="hud-stat-label">Puntaje</div>
+                    <div class="hud-stat-value points" id="hudPuntos">0 pts</div>
+                </div>
+                <div class="hud-stat-box">
+                    <div class="hud-stat-label">Hallazgos</div>
+                    <div class="hud-stat-value" id="hudHallazgos">0 / 35</div>
+                </div>
+                <div class="content-count" id="contador" title="Tiempo restante">
+                    ⏰ 00:00
+                </div>
+            </div>
         </div>
-        
-        <div id="btn_start">START</div>
-        
-   </div> 
-    <footer class="container">
-        <p class="derecho">&copy; 2026 App realizada por <a href="https://lucasluna235.github.io/LEL-Desarrollos-Web/">LEL desarrollos Web</a> - todos los derechos reservados </p>
+
+        <!-- BARRA DE PROGRESO -->
+        <div class="progress-container">
+            <div class="progress-header">
+                <span>Progreso de detección</span>
+                <span id="progressPercent">0%</span>
+            </div>
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressBarFill"></div>
+            </div>
+        </div>
+
+        <!-- CONTENEDOR DE COMPATIBILIDAD CON JS ORIGINAL -->
+        <div class="content-puntos" style="display: none;"></div>
+
+        <!-- ÁREA DEL JUEGO / LÁMINA TÉCNICA -->
+        <div class="game-viewport-card">
+            <div class="content-img game" id="zona">
+                <img src="../assets/img_riesgo4.png" alt="Lámina técnica de riesgos en taller industrial" id="ImagenJuego">
+                
+                <!-- VELO DE INICIO -->
+                <div class="content-block">
+                    <div class="start-card">
+                        <div style="font-size: 40px; margin-bottom: 12px;">🏭</div>
+                        <h2>Inspección de Planta</h2>
+                        <p>Haz clic sobre las anomalías, condiciones y actos inseguros antes de que se agote el cronómetro.</p>
+                        <button id="btn_start" type="button">▶ Comenzar Evaluación</button>
+                    </div>
+                </div>
+
+                <!-- MENSAJE TOAST FLOTANTE -->
+                <div id="mensajeJuego" class="mensaje-juego"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL SELECCIÓN DE ROL -->
+    <div class="modal-overlay" id="modalRol">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="font-size: 36px; margin-bottom: 8px;">👷‍♂️</div>
+                <h2>Selecciona tu Rol Operativo</h2>
+                <p>El tiempo para completar la inspección se ajusta a tu nivel de responsabilidad.</p>
+            </div>
+
+            <div class="roles-grid">
+                <!-- Rol Principiante -->
+                <div class="role-option-card" data-role="ayudante" data-time="300" data-label="Ayudante / Medio Oficial">
+                    <div class="role-info">
+                        <div class="role-icon">🦺</div>
+                        <div>
+                            <div class="role-title">Ayudante / Medio Oficial / Oficial</div>
+                            <div class="role-sub">Nivel inicial &bull; Inspección general</div>
+                        </div>
+                    </div>
+                    <span class="role-time-badge">⏱️ 5 min</span>
+                </div>
+
+                <!-- Rol Intermedio -->
+                <div class="role-option-card" data-role="ejecutor" data-time="180" data-label="Ejecutor / Capataz / Supervisor">
+                    <div class="role-info">
+                        <div class="role-icon">👷</div>
+                        <div>
+                            <div class="role-title">Ejecutor / Capataz / Supervisor</div>
+                            <div class="role-sub">Nivel intermedio &bull; Supervisión de tareas</div>
+                        </div>
+                    </div>
+                    <span class="role-time-badge">⏱️ 3 min</span>
+                </div>
+
+                <!-- Rol Avanzado -->
+                <div class="role-option-card" data-role="jefe de obra" data-time="60" data-label="Jefe de Obra / Supervisor HyS">
+                    <div class="role-info">
+                        <div class="role-icon">🏗️</div>
+                        <div>
+                            <div class="role-title">Jefe de Obra / Supervisor HyS</div>
+                            <div class="role-sub">Nivel experto &bull; Agilidad máxima</div>
+                        </div>
+                    </div>
+                    <span class="role-time-badge">⏱️ 1 min</span>
+                </div>
+            </div>
+
+            <div style="text-align: center;">
+                <button type="button" id="btnConfirmarRol" class="btn btn-primary" style="width: 100%; padding: 12px;">Continuar con la Evaluación</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL FIN DE PARTIDA / REGISTRO -->
+    <div class="modal-overlay" id="modalFinPartida">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div style="font-size: 40px; margin-bottom: 8px;" id="modalFinIcon">🏆</div>
+                <h2 id="modalFinTitulo">Evaluación Finalizada</h2>
+                <p id="modalFinSubtitulo">Revisa tu rendimiento y registra tu resultado oficial.</p>
+            </div>
+
+            <div class="endgame-stats">
+                <div>
+                    <div class="hud-stat-label">Puntaje</div>
+                    <div class="hud-stat-value points" id="finPuntos">0</div>
+                </div>
+                <div>
+                    <div class="hud-stat-label">Hallazgos</div>
+                    <div class="hud-stat-value" id="finHallazgos">0 / 35</div>
+                </div>
+                <div>
+                    <div class="hud-stat-label">Tiempo Empleado</div>
+                    <div class="hud-stat-value" id="finTiempo">00:00</div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="inputNombreJugador">Nombre del Evaluador / Participante</label>
+                <input type="text" id="inputNombreJugador" class="input-control" placeholder="Escribe tu nombre completo...">
+            </div>
+
+            <div style="display: flex; gap: 12px; justify-content: flex-end;">
+                <button type="button" id="btnReintentar" class="btn btn-outline">Reintentar</button>
+                <button type="button" id="btnGuardarPuntaje" class="btn btn-safety">Guardar y Ver Ranking ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Plataforma de Evaluación CMASS &bull; Desarrollado por <a href="https://lucasluna235.github.io/LEL-Desarrollos-Web/" target="_blank" rel="noopener">LEL Desarrollos Web</a> &bull; Todos los derechos reservados.</p>
+        </div>
     </footer>
 
-   <script type="module" src="../js/app.js"></script>
-   
-   <script type="module" src="../firebase/app_firebase.js"></script> 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- SCRIPTS -->
+    <script type="module" src="../firebase/app_firebase.js"></script>
+    <script type="module" src="../js/app.js"></script>
 </body>
 </html>

@@ -3,7 +3,7 @@
     "database": "(default)",
     "location": "nam5",
     "rules": "firestore.rules",
-    "indexes": "index.html"
+    "indexes": "firestore.indexes.json"
   },
    "hosting": {
     "public": "public",
